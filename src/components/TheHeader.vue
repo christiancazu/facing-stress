@@ -17,8 +17,7 @@
         <q-btn
           :to="`${isScreenMd ? '' : '/'}`"
           flat stretch no-caps
-          :class="{ 'full-width q-pl-none' : isScreenMd }"
-          class="">
+          :class="{ 'full-width q-pl-none' : isScreenMd }">
           <q-avatar>
             <img :src="avatarImgPath">
           </q-avatar>
@@ -43,12 +42,13 @@
           </q-item-section>
         </q-item>
 
-        <!-- LocaleDropdown component -->
-        <LocaleDropdown gt-sm />
+        <!-- locale-dropdown component -->
+        <locale-dropdown gt-sm />
 
       </q-toolbar>
     </q-header>
 
+    <!-- sidebar -->
     <q-drawer
       v-model="leftDrawerOpen"
       :width="200"
@@ -67,10 +67,11 @@
           </q-item-section>
         </q-item>
 
-        <!-- LocaleDropdown component -->
-        <LocaleDropdown arrow-right/>
+        <!-- locale-dropdown component -->
+        <locale-dropdown arrow-right/>
       </q-list>
     </q-drawer>
+
 </div>
 </template>
 
@@ -80,7 +81,7 @@ export default {
 
   data () {
     return {
-      navs: ['home', 'test', 'about'],
+      navs: ['home', 'test', 'how'],
       appName: process.env.APP_NAME,
       leftDrawerOpen: !this.$q.platform.is.desktop,
       avatarImgPath: '/statics/icons/favicon.ico'

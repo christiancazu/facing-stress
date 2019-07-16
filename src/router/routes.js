@@ -1,6 +1,6 @@
 import homePage from './pages/home'
 import testPage from './pages/test'
-import aboutPage from './pages/about'
+import howPage from './pages/how'
 
 const routes = [
   {
@@ -9,7 +9,7 @@ const routes = [
     children: [
       homePage,
       testPage,
-      aboutPage
+      howPage
     ]
   }
 ]
