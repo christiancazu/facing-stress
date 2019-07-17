@@ -101,7 +101,7 @@ module.exports = function (ctx) {
     build: {
       env: envparser(), // build function to load environment variables
       scopeHoisting: true,
-      vueRouterMode: 'history',
+      // vueRouterMode: 'history',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,

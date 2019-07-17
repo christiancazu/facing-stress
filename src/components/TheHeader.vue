@@ -84,7 +84,7 @@ export default {
       navs: ['home', 'test', 'how'],
       appName: process.env.APP_NAME,
       leftDrawerOpen: !this.$q.platform.is.desktop,
-      avatarImgPath: '/statics/icons/favicon.ico'
+      avatarImgPath: 'statics/icons/favicon.ico'
     }
   },
   computed: {
