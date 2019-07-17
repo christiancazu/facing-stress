@@ -1,9 +1,12 @@
 <template>
   <div class="q-pa-md">
 
-    <q-badge :color="color">
-      {{ name }}
-    </q-badge>
+    <q-chip :color="color" text-color="white">
+      <q-avatar>
+        <img :src="`statics/emojis/${name}.png`">
+      </q-avatar>
+      {{ $t(`${name}`) }}
+    </q-chip>
 
     <q-slider
       v-model="value"
@@ -12,7 +15,9 @@
       :min="0"
       :max="10"
       :step="1"
-      snap label label-always
+      snap
+      label
+      label-always
     />
   </div>
 </template>

@@ -1,4 +1,5 @@
 export const state = {
+  faceImg: null,
   formAttrs: {
     name: '',
     age: null,
@@ -15,10 +16,15 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_FORM_ATTRS: (state, { name, age, emotions }) => {
+  SET_FORM_ATTRS: (state, { name, age, emotions, faceImg }) => {
     state.formAttrs.name = name
     state.formAttrs.age = age
     state.formAttrs.emotions = emotions
+    state.faceImg = faceImg
+  },
+
+  SET_API_FACE_ATTRS: (state, payload) => {
+    state.faceApiAttrs = payload
   }
 
   // SET_CATEGORY: (state, payload) => { state.selectedCategory = payload },

@@ -42,6 +42,7 @@ module.exports = function (ctx) {
       // all: true, // --- includes everything; for dev only!
 
       components: [
+        'QChip',
         'QAvatar',
         'QLayout',
         'QHeader',
@@ -70,7 +71,11 @@ module.exports = function (ctx) {
         'QStepperNavigation',
         'QImg',
         'QFab',
-        'QFabAction'
+        'QFabAction',
+        'QParallax',
+        'QCarousel',
+        'QCarouselControl',
+        'QCarouselSlide'
       ],
 
       directives: [
@@ -147,8 +152,8 @@ module.exports = function (ctx) {
         // description: 'aplicación web-pwa para detectar niveles de estrés mediante el reconocimiento de atributos faciales',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#027be3',
+        background_color: '#f5f5f5',
+        theme_color: '#008080',
         icons: [
           {
             'src': 'statics/icons/icon-128x128.png',

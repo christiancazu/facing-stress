@@ -21,5 +21,15 @@ export default {
   how: 'how it works?',
   show_my_result: 'Show my results',
   name: 'name',
-  age: 'age'
+  age: 'age',
+  anger: 'anger',
+  contempt: 'contempt',
+  disgust: 'disgust',
+  fear: 'fear',
+  happiness: 'happiness',
+  neutral: 'neutral',
+  sadness: 'sadness',
+  surprise: 'surprise',
+  female: 'female',
+  male: 'male'
 }

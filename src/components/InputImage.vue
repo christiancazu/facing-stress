@@ -25,8 +25,9 @@
       </label>
     </div>
     <span
-      class="text-h6 text-info"
-      v-if="!imgFile.url">
+      class="text-h6 text-accent"
+      v-if="!imgFile.url"
+    >
       {{ $t('upload_img') }}
     </span>
 
@@ -121,76 +122,77 @@ export default {
 [type=file] {
   display: none;
 }
+
 // fix padding in right top in q-img slot to q-fab
 .q-img__content > div {
-padding: 16px 16px 0 16px;
+  padding: 16px 16px 0 16px;
 }
 
 .input-image {
-font-size: 16px;
-position: relative;
+  font-size: 16px;
+  position: relative;
 
-&__file {
-background-color: #027BE3;
-border-radius: 50%;
-height: 8em;
-margin: 0 auto;
-padding: 1px;
-text-align: center;
-transition: all 1s;
-width: 8em;
+  &__file {
+    background-color: $primary;
+    border-radius: 50%;
+    height: 8em;
+    margin: 0 auto;
+    padding: 1px;
+    text-align: center;
+    transition: all 1s;
+    width: 8em;
 
-&:hover {
-transform: translate(0, -1em);
-}
+    &:hover {
+      transform: translate(0, -1em);
+    }
 
-//label target to input file
-& > .upload {
-align-items: center;
-background-color: #027BE3;
-border-radius: 50%;
-border: 6px dashed white;
-color: #fff;
-cursor: pointer;
-display: flex;
-height: 100%;
-justify-content: space-around;
-transform: scale(1);
-transition: all 1s;
-width: 100%;
+    // label target to input file
+    & > .upload {
+      align-items: center;
+      background-color: $primary;
+      border-radius: 50%;
+      border: 6px dashed white;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      height: 100%;
+      justify-content: space-around;
+      transform: scale(1);
+      transition: all 1s;
+      width: 100%;
 
-&:after {
-content: '';
-background-color: black;
-bottom: -1.25em;
-border-radius: 50%;
-box-shadow: 0 0 0.1em 0.1em black;
-height: 1em;
-opacity: 0;
-position: absolute;
-transition: all 1s;
-width: 1em;
-}
+      &:after {
+        content: '';
+        background-color: black;
+        bottom: -1.25em;
+        border-radius: 50%;
+        box-shadow: 0 0 0.1em 0.1em black;
+        height: 1em;
+        opacity: 0;
+        position: absolute;
+        transition: all 1s;
+        width: 1em;
+      }
 
-&:hover {
-transform: scale(1.1);
-background-color: white;
-border: 6px solid #027BE3;
-color: #027BE3;
+      &:hover {
+        transform: scale(1.1);
+        background-color: white;
+        border: 6px solid $primary;
+        color: $primary;
 
-&:after {
-opacity: 0.4;
-bottom: -2em;
-width: 7em;
-}
-}
-}
-}
+        &:after {
+          opacity: 0.4;
+          bottom: -2em;
+          width: 7em;
+        }
+      }
+    }
+  }
 
-& > span {
-display: block;
-margin: 1em 0;
-text-align: center;
-}
+  & > span {
+    display: block;
+    margin: 1em 0;
+    text-align: center;
+  }
 }
 </style>

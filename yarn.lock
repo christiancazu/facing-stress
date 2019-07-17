@@ -2922,6 +2922,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emoji-img@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-img/-/emoji-img-1.0.0.tgz#6b62407f3a46c02c10888c28929e46a3bf2fde11"
+  integrity sha1-a2JAfzpGwCwQiIwokp5Go78v3hE=
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"

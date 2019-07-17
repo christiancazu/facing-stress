@@ -136,7 +136,7 @@ export default {
         age: ''
       },
       emotionSliders: [
-        { name: 'anger', value: 5, color: 'red' },
+        { name: 'anger', value: 5, color: 'blue-grey' },
         { name: 'contempt', value: 5, color: 'purple' },
         { name: 'disgust', value: 5, color: 'indigo' },
         { name: 'fear', value: 5, color: 'light-blue' },
@@ -175,11 +175,6 @@ export default {
       this.cover_img_file = val.url
     },
     sendImageToMicrosoftDetectEndPoint (callback) {
-      console.warn(this.emotionSliders)
-      this.$store.commit('test/SET_FORM_ATTRS', {
-        age: this.age,
-        emotions: this.emotionSliders
-      })
       // eslint-disable-next-line no-unreachable
       this.dataURItoBuffer(this.cover_img_file, (buff) => {
         this.submitting = true
@@ -202,7 +197,10 @@ export default {
                   text: `${this.$t('error.face_no_detect')}`
                 })
                 break
+
               case 1:
+                this.saveFormDataInStore()
+                this.saveApiFaceDataInStore(response.data)
                 Swal.fire({
                   type: 'success',
                   title: `${this.$t('correct')}... ${this.$t('success.data_complet')}`,
@@ -214,6 +212,7 @@ export default {
                   if (result.value) this.$router.push({ name: 'test.result' })
                 })
                 break
+
               default:
                 Swal.fire({
                   type: 'error',
@@ -235,10 +234,20 @@ export default {
     dataURItoBuffer (dataURL, callback) {
       var buff = Buffer.from(dataURL.replace(/^data:image\/(png|PNG|gif|GIF|jpeg|JPEG|jpg|JPG);base64,/, ''), 'base64')
       callback(buff)
+    },
+    saveFormDataInStore () {
+      this.$store.commit('test/SET_FORM_ATTRS', {
+        name: this.name,
+        age: this.age,
+        emotions: this.emotionSliders,
+        faceImg: this.cover_img_file
+      })
+    },
+    saveApiFaceDataInStore (data) {
+      this.$store.commit('test/SET_API_FACE_ATTRS', data[0])
     }
   },
 
   mixins: [validateFormMixin]
 }
-// this.$store.commit('stores/UPDATE_MYSTORE', result.data)
 </script>
