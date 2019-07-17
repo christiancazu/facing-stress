@@ -51,7 +51,7 @@
     <!-- sidebar -->
     <q-drawer
       v-model="leftDrawerOpen"
-      :width="200"
+      :width="160"
       content-class="bg-grey-2"
     >
       <q-list>
@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 /* navs text styles for active/no active link */
 .q-item {
   color: inherit;

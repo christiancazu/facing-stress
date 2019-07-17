@@ -3,7 +3,8 @@ export default {
     problem: 'A problem has occurred',
     wrong_try_again: 'Something went wrong! Please try again.',
     many_person: 'More than one person has been detected, try with an image where you can see only!',
-    face_no_detect: 'No face was detected!'
+    face_no_detect: 'No face was detected!',
+    data_invalid: 'Some data are invalids!'
   },
   success: {
     data_complet: 'Your data was processed correctly!'

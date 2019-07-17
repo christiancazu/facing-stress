@@ -117,7 +117,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 [type=file] {
   display: none;
 }
@@ -127,7 +127,7 @@ padding: 16px 16px 0 16px;
 }
 
 .input-image {
-font-size: var(--font-size);
+font-size: 16px;
 position: relative;
 
 &__file {

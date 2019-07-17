@@ -58,7 +58,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="stylus" scoped>
 /* nav dropdown opacity no active */
 .q-btn__content {
   opacity: .8

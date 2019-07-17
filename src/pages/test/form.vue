@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="row justify-center q-my-xl">
+    <div class="row justify-center q-my-sm q-ma-sm">
 
       <q-card class="col-12 col-md-8 q-my-md">
         <q-card-section class="bg-primary text-white">
@@ -180,7 +180,6 @@ export default {
         age: this.age,
         emotions: this.emotionSliders
       })
-      return
       // eslint-disable-next-line no-unreachable
       this.dataURItoBuffer(this.cover_img_file, (buff) => {
         this.submitting = true
