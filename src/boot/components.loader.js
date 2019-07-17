@@ -1,6 +1,9 @@
 // loading every component and layout on Vue.component
+import VueParticles from 'vue-particles'
 
 export default async ({ Vue }) => {
+  Vue.use(VueParticles)
+
   // load all components dinamycally
   const requireComponents = require.context('@/components', false, /\.(vue)$/i)
   requireComponents.keys().forEach(key => {
