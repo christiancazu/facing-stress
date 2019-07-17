@@ -18,6 +18,7 @@
     "axios": "^0.19.0",
     "js-cookie": "^2.2.0",
     "quasar": "^1.0.5",
+    "sweetalert2": "^8.13.6",
     "vee-validate": "^2.2.13",
     "vue-i18n": "^8.12.0"
   },

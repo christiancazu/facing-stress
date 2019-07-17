@@ -15,7 +15,8 @@ module.exports = function (ctx) {
       'i18n',
       'axios',
       'components.loader',
-      'vee-validate'
+      'vee-validate',
+      'swal'
     ],
 
     css: [

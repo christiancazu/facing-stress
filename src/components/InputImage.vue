@@ -25,7 +25,7 @@
       </label>
     </div>
     <span
-      class="text-h6 text-secondary"
+      class="text-h6 text-info"
       v-if="!imgFile.url">
       {{ $t('upload_img') }}
     </span>
@@ -34,20 +34,19 @@
       v-show="imgFile.url"
       :src="imgFile.url"
       class="img-max-height-cover"
-      :alt="$t('cover')"
       transition="fade"
       spinner-color="secondary"
     >
       <q-fab
         v-if="!noEditable || !noDeletable"
         class="bg-transparent absolute-top-right"
-        color="secondary"
+        color="info"
         icon="more_vert"
         direction="down"
       >
         <q-fab-action
           v-if="!noEditable"
-          color="info"
+          color="warning"
           icon="edit"
           @click="onFabMenu('edit')"
         />
