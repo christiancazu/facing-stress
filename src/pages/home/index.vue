@@ -2,12 +2,12 @@
   <q-page class="flex">
     <vue-particles
       class=" full-width absolute"
-      color="#3f51b5"
+      color="#fff"
       :particleOpacity="0.8"
       :particlesNumber="40"
       shapeType="circle"
       :particleSize="4"
-      linesColor="#3f51b5"
+      linesColor="#efefef"
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.4"
@@ -53,8 +53,8 @@
                   src="images/pic01.jpg"
                   alt=""
                 /></a>
-              <div class="row justify-center q-gutter-md">
-                <div class="col q-px-xl text-right">
+              <div class="row justify-center q-mx-xl">
+                <div class="col-xs-12 col-md-6 q-pa-md text-right">
                   <h2 class="major text-left">¿Tienes Estrés?</h2>
                   <!--<p style="text-align: justify;">A nivel mundial el estrés en personas cada día va en aumento por la gran cantidad de actividades diarias que tienen que realizar y por el alto nivel de exigencia que establecen los estándares sociales. Estudios recientes han demostrado que el estrés también puede afectar los aspectos de su vida, incluida su capacidad de pensamiento y su salud física. Para reducir el riesgo de ser estresado y afectado con sus efectos adversos, es crucial detectar tales emociones y tomar ciertas medidas para relajarlas.</p>-->
                   <p style="text-align: justify;">Estrés es lo que se siente cuando te supera una situación externa. Tu organismo se está sobreactivando demasiado y tu salud empieza a sentirse perjudicada.Si mantienes unos niveles demasiado elevados durante demasiado tiempo, puedes desarrollar transtorno emocional y/o físico... y lo peor: sin darte cuenta.Los síntomas del estrés pueden afectar el cuerpo, los pensamientos, las emociones y el comportamiento. Saber identificar los síntomas comunes del estrés ya es un gran paso para poder manejarlos. Si no se controla, el estrés puede desencadenar muchos problemas de salud, como presión arterial alta, enfermedades cardíacas, obesidad y diabetes.</p>
@@ -63,7 +63,7 @@
                     class="text-grey-1 text-h6 special text-decoration-none"
                   >Leer más</a>
                 </div>
-                <div class="col q-px-xl">
+                <div class="col-xs-12 col-md-6 q-pa-md">
                   <img
                     style="max-width: 100%"
                     src="statics/home/elestres.jpg"
@@ -193,7 +193,7 @@ export default {
   name: 'HomeIndex'
 }
 </script>
-<style scoped>
+<style lang="stylus" scoped>
 @import "../../css/bootstrap.css";
 
 body,
@@ -201,7 +201,7 @@ input,
 select,
 textarea {
   color: #ffffff;
-  background-color: #2e3141;
+  background-color: $primary;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 body.is-preload *,
@@ -560,7 +560,7 @@ select {
 
 select option {
   color: #ffffff;
-  background: #2e3141;
+  background: $primary;
 }
 
 select:focus::-ms-value {
@@ -648,7 +648,7 @@ input[type="radio"]:checked + label:before {
   background: #ffffff;
   border-color: #ffffff;
   content: "\f00c";
-  color: #2e3141;
+  color: $primary;
 }
 
 input[type="checkbox"]:focus + label:before,
@@ -1791,7 +1791,7 @@ a.special {
 @media screen and (max-width: 1280px) {
   #banner {
     padding: 7em 0 8.25em 0;
-    background-color: #2e3141;
+    background-color: $primary;
     /* background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg"); */
     background-size: auto, cover;
     background-position: center, center;
@@ -1895,7 +1895,7 @@ body.is-preload #banner p {
 @media screen and (max-width: 1280px) {
   #wrapper > header {
     padding: 9em 0 6.25em 0;
-    background-color: #2e3141;
+    background-color: $primary;
     /* background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg"); */
     background-size: auto, cover;
     background-position: center, 0% 30%;
@@ -1933,7 +1933,7 @@ body.is-preload #banner p {
 }
 
 .wrapper {
-  background-color: #2e3141;
+  background-color: $primary;
   margin: 6.5em 0;
   position: relative;
 }
@@ -1944,11 +1944,11 @@ body.is-preload #banner p {
 }
 
 .wrapper:before {
-  box-shadow: inset 0 -1px 0 0 #2e3141, 0 1px 0 0 #2e3141;
+  box-shadow: inset 0 -1px 0 0 $primary, 0 1px 0 0 $primary;
 }
 
 .wrapper:after {
-  box-shadow: inset 0 -1px 0 0 #2e3141, 0 1px 0 0 #2e3141;
+  box-shadow: inset 0 -1px 0 0 $primary, 0 1px 0 0 $primary;
 }
 
 .wrapper:before,
@@ -2384,7 +2384,7 @@ body.is-preload #banner p {
 
 @media screen and (max-width: 1280px) {
   #footer {
-    background-color: #2e3141;
+    background-color: $primary;
     /* background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg"); */
     background-size: auto, cover;
     background-position: center, center;

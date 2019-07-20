@@ -91,7 +91,7 @@ export default {
 
   data () {
     return {
-      navs: ['home', 'test', 'how'],
+      navs: ['home', 'evaluation', 'how'],
       appName: process.env.APP_NAME,
       leftDrawerOpen: !this.$q.platform.is.desktop,
       avatarImgPath: 'statics/logo.png'

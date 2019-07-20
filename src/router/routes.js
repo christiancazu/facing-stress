@@ -1,5 +1,5 @@
 import homePage from './pages/home'
-import testPage from './pages/test'
+import evaluationPage from './pages/evaluation'
 import howPage from './pages/how'
 
 const routes = [
@@ -8,7 +8,7 @@ const routes = [
     component: () => import('layouts/BaseLayout.vue'),
     children: [
       homePage,
-      testPage,
+      evaluationPage,
       howPage
     ]
   }

@@ -31,5 +31,25 @@ export default {
   sadness: 'triste',
   surprise: 'sorprendido',
   female: 'femenino',
-  male: 'masculino'
+  male: 'masculino',
+  evaluation: 'evaluación',
+  indications: 'indicaciones',
+  information: 'información',
+  evaluation_text: {
+    indication_1: 'Lea detenidamente cada pregunta. Solo deberá marcar dentro de los cuadrados de las opciones que haya elegido.<br>  No se olvide que las respuestas deben ser honestas para obtener un mejor resultado.',
+    info_1: 'En el siguiente formulario deberá indicar los eventos estresantes que le han ocurrido recientemente.'
+  },
+  important: 'Importante',
+  indicate_data: 'Indique sus datos',
+  indicate_stress_event: 'Elija los eventos',
+  form: 'Formulario',
+  questions: {
+    death: 'Fallecimiento de algún familiar recientemente',
+    changes: 'Agravamiento de la salud de algún familiar recientemete',
+    pregnant: 'Nuevo integrante en la familia',
+    work: 'Haber sido despedido de su trabajo',
+    retired: 'Se ha jubilado',
+    loss: 'Perdida de objetos de valor ante un desastre u robo',
+    debt: 'Tiene una deuda económica'
+  }
 }

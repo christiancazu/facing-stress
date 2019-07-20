@@ -1,20 +1,6 @@
 <template>
   <q-page>
-    <div class="row justify-center q-my-sm q-ma-sm">
-
-      <q-card class="col-12 col-md-8 q-my-md">
-        <q-card-section class="bg-secondary text-white">
-          <div class="text-h6 text-center">Prueba de emociones</div>
-        </q-card-section>
-
-        <q-card-section class="q-ma-md text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam
-          quas pariatur magnam ducimus nobis sint atque id praesentium quae
-          consectetur natus architecto modi, quidem possimus molestiae ad recusandae eaque?
-        </q-card-section>
-      </q-card>
+    <div class="row justify-center q-ma-sm q-gutter-md">
 
       <q-stepper
         v-model="step"
@@ -25,18 +11,29 @@
       >
         <q-step
           :name="1"
-          title="Formulario de emociones"
+          :title="$t('form')"
           icon="settings"
           :done="step > 1"
         >
-          <div class="q-px-md text-h6 text-accent">complete los datos:</div>
+
+          <div class="q-px-md text-h6 text-accent q-my-md">
+            {{ $t('important') }}
+          </div>
+
+          <block-quote type="secondary">
+            {{ $t('evaluation_text.info_1') }}
+          </block-quote>
+
+          <div class="q-px-md text-h6 text-accent q-my-md">
+            {{ $t('indicate_data') }}
+          </div>
 
           <div class="row justify-center q-gutter-x-xl q-px-md">
             <q-input
               v-model="name"
-              class="col"
+              class="col text-capitalize"
               bottom-slots
-              color="info"
+              color="secondary"
               name="name"
               v-validate="form_rules.name"
               :label="`${ $t('name') }*`"
@@ -46,7 +43,7 @@
             />
             <q-input
               v-model.number="age"
-              class="col"
+              class="col text-capitalize"
               bottom-slots
               color="info"
               name="age"
@@ -59,16 +56,19 @@
             />
           </div>
 
-          <div class="q-px-md q-my-md text-h6 text-accent">Indique como se siente:</div>
-          <!-- QSlider -->
-          <base-slider
-            v-for="(slider, index) in emotionSliders"
-            :key="index"
-            :index="index"
-            :name="slider.name"
-            :color="slider.color"
-            @sliderValue="getSliderValue"
-          />
+          <div class="q-px-md text-h6 text-accent q-my-md">
+            {{ $t('indicate_stress_event') }}
+          </div>
+
+          <div class="q-pa-sm">
+            <q-option-group
+              :options="questions"
+              label="Notifications"
+              type="checkbox"
+              v-model="group"
+            />
+          </div>
+
         </q-step>
         <q-step
           :name="2"
@@ -84,7 +84,7 @@
           />
         </q-step>
         <template v-slot:navigation>
-          <q-stepper-navigation class="row justify-center q-gutter-x-md">
+          <q-stepper-navigation class="row justify-center">
             <q-btn
               @click="step !== 2 ? validateNextStep() : sendImageToMicrosoftDetectEndPoint()"
               :label="step === 2 ? 'Enviar Información' : 'Continuar'"
@@ -92,17 +92,18 @@
               :loading="submitting"
               push
               glossy
-              class="col"
-              color="primary"
+              class="col q-mx-md"
+              color="secondary"
             />
+
             <q-btn
               v-if="step > 1"
               push
               color="white"
               @click="$refs.stepper.previous()"
               label="Volver"
-              text-color="primary"
-              class="col"
+              text-color="secondary"
+              class="col q-mx-md"
             />
           </q-stepper-navigation>
         </template>
@@ -135,19 +136,31 @@ export default {
         name: '',
         age: ''
       },
-      emotionSliders: [
-        { name: 'anger', value: 5, color: 'blue-grey' },
-        { name: 'contempt', value: 5, color: 'purple' },
-        { name: 'disgust', value: 5, color: 'indigo' },
-        { name: 'fear', value: 5, color: 'light-blue' },
-        { name: 'happiness', value: 5, color: 'teal' },
-        { name: 'neutral', value: 5, color: 'light-green' },
-        { name: 'sadness', value: 5, color: 'amber' },
-        { name: 'surprise', value: 5, color: 'deep-orange' }
-      ]
+      group: [],
+      questions: [
+        { label: this.$t('questions.death'), value: 3 },
+        { label: this.$t('questions.changes'), value: 2 },
+        { label: this.$t('questions.pregnant'), value: 1 },
+        { label: this.$t('questions.work'), value: 2.5 },
+        { label: this.$t('questions.retired'), value: 1.5 },
+        { label: this.$t('questions.loss'), value: 1.1 },
+        { label: this.$t('questions.debt'), value: 0.5 }
+      ],
+      toastEvaluationInfoTemplate: `
+        <h6 class="q-ma-none text-justify text-h6">
+          ${this.$t('evaluation_text.indication_1')}
+        </h6>`
     }
   },
   methods: {
+    showToastEvaluationInfo () {
+      Swal.fire({
+        position: 'top-end',
+        type: 'info',
+        title: this.toastEvaluationInfoTemplate,
+        showConfirmButton: true
+      })
+    },
     async validateNextStep () {
       this.form_errors.name = ''
       this.form_errors.age = ''
@@ -164,18 +177,11 @@ export default {
           this.$refs.stepper.next()
         }
       })
-      // if (await this.$_validateFormMixin_isValid()) {
-      //   this.$refs.stepper.next()
-      // }
-    },
-    getSliderValue (slider) {
-      this.emotionSliders[slider.index].value = slider.value
     },
     getImgFile (val) {
       this.cover_img_file = val.url
     },
     sendImageToMicrosoftDetectEndPoint (callback) {
-      // eslint-disable-next-line no-unreachable
       this.dataURItoBuffer(this.cover_img_file, (buff) => {
         this.submitting = true
         let requestAttrs = 'age,gender,smile,facialHair,glasses,emotion,makeup,accessories'
@@ -207,9 +213,7 @@ export default {
                   allowOutsideClick: false,
                   confirmButtonText: `${this.$t('show_my_result')}`
                 }).then((result) => {
-                  // console.warn(this.sliders)
-                  // this.$store.commit('test/SET_FORM_ATTRS', this.sliders)
-                  if (result.value) this.$router.push({ name: 'test.result' })
+                  if (result.value) this.$router.push({ name: 'evaluation.result' })
                 })
                 break
 

@@ -31,5 +31,25 @@ export default {
   sadness: 'sadness',
   surprise: 'surprise',
   female: 'female',
-  male: 'male'
+  male: 'male',
+  evaluation: 'evaluation',
+  indications: 'indications',
+  information: 'information',
+  evaluation_text: {
+    indication_1: 'Read each question carefully. It should only be marked within the squares of the options that have been chosen. <br>Do not forget that the answers must be honest to obtain a better result.',
+    info_1: 'In the following form you must indicate the events that have happened recently.'
+  },
+  important: 'Important',
+  indicate_data: 'Indicate your data',
+  indicate_stress_event: 'Choose events',
+  form: 'Form',
+  questions: {
+    death: 'Death of a relative recently',
+    changes: 'Aggravation of the health of a family member recently',
+    pregnant: 'New member in the family',
+    work: 'Having been fired from his job',
+    retired: 'It has retired',
+    loss: 'Loss of valuables in the event of a disaster or theft',
+    debt: 'You have an economic debt'
+  }
 }

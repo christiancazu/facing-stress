@@ -133,7 +133,7 @@ export default {
   position: relative;
 
   &__file {
-    background-color: $primary;
+    background-color: $secondary;
     border-radius: 50%;
     height: 8em;
     margin: 0 auto;
@@ -149,7 +149,7 @@ export default {
     // label target to input file
     & > .upload {
       align-items: center;
-      background-color: $primary;
+      background-color: $secondary;
       border-radius: 50%;
       border: 6px dashed white;
       color: #fff;

@@ -75,7 +75,9 @@ module.exports = function (ctx) {
         'QParallax',
         'QCarousel',
         'QCarouselControl',
-        'QCarouselSlide'
+        'QCarouselSlide',
+        'QOptionGroup',
+        'QCheckbox'
       ],
 
       directives: [
