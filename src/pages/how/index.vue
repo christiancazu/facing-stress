@@ -98,7 +98,7 @@ Recuerde que estos datos tienen que ser reales y no fotos antiguas ya que modifi
             </div>
             <div class="col-4">
               <q-img
-                src="https://placeimg.com/500/300/nature"
+                src="statics/qqq.jpeg"
                 :ratio="4/3"
               />
             </div>
