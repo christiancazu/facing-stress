@@ -151,6 +151,11 @@ export default {
         </h6>`
     }
   },
+
+  mounted () {
+    this.showToastEvaluationInfo()
+  },
+
   methods: {
     showToastEvaluationInfo () {
       Swal.fire({
@@ -177,6 +182,7 @@ export default {
         }
       })
     },
+
     getImgFile (val) {
       this.cover_img_file = val.url
     },

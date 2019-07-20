@@ -66,32 +66,135 @@
             También hemos detectado
           </div>
 
-          <block-quote type="primary">
+          <block-quote type="secondary">
             En el formulario indicaste que tienes una edad de
             <span class="text-secondary text-h6 text-accent">{{ formAttrs.age }}</span> años
             y la evaluación de reconocimiento facial ha detectado que tienes <span class="text-h6 text-accent">{{ faceApiAttrs.faceAttributes.age }}</span> años.
           </block-quote>
 
-          <block-quote type="primary">
+          <block-quote type="secondary">
             La prueba de reconocimiento facial ha detectado que tu género es <span class="text-h6 text-accent">{{ $t(`${faceApiAttrs.faceAttributes.gender}`) }}</span>.
           </block-quote>
 
         </q-card-section>
 
-        <q-card-section class="col-12 q-ma-md">
-          <q-btn
-            @click="fullscreen = true"
-            :label="'Ver mis Recomendaciones'"
-            push
-            glossy
-            class="col full-width q-ma-sm"
-            color="secondary"
+        <q-card-section class="col-12 col-md-8 q-ma-md">
+          <q-img src="statics/banner.jpeg"></q-img>
+        </q-card-section>
+
+        <q-card-section class="col-12 col-md-8 q-ma-md">
+          <block-quote type="primary text-dark">
+            <span class="text-h6 text-primary"> La Positiva Seguros: </span>
+            <span class="text-h6 text-black"> Entendemos tus preocupaciones por eso te ofrecemos seguros
+              especialmente para ti.
+            </span>
+          </block-quote>
+        </q-card-section>
+
+        <div class="q-px-md text-h6 text-accent q-ma-lg">
+          Seguros de Vida Familia
+        </div>
+
+        <q-card-section class="col-12 col-md-8 row">
+          <q-card class="col-12 q-my-md">
+            <img
+              src="statics/servicios/1.png"
+              class="text-center"
+              style="max-width: 144px; margin: 0 auto"
+            >
+            <q-card-section>
+              <div class="text-h6 text-primary text-center">Indemnización por fallecimiento natural</div>
+            </q-card-section>
+          </q-card>
+          <q-card class="col-12 q-my-md">
+            <img
+              src="statics/servicios/2.png"
+              class="text-center"
+              style="max-width: 144px; margin: 0 auto"
+            >
+            <q-card-section>
+              <div class="text-h6 text-primary text-center">Indemnización por fallecimiento accidental</div>
+            </q-card-section>
+          </q-card>
+          <q-card class="col-12 q-my-md">
+            <img
+              src="statics/servicios/3.png"
+              class="text-center"
+              style="max-width: 144px; margin: 0 auto"
+            >
+            <q-card-section>
+              <div class="text-h6 text-primary text-center">Por invalidez permanente parcial o total</div>
+            </q-card-section>
+          </q-card>
+        </q-card-section>
+
+        <div class="q-px-md text-h6 text-accent q-ma-lg">
+          Seguro de trabajo de riesgo
+        </div>
+
+        <q-card-section class="col-12 col-md-8 row">
+          <q-card class="col-12 q-my-md">
+            <img
+              src="statics/servicios/4.png"
+              class="text-center"
+              style="max-width: 144px; margin: 0 auto"
+            >
+            <q-card-section>
+              <div class="text-h6 text-primary text-center">Vida Ley</div>
+            </q-card-section>
+          </q-card>
+          <q-card class="col-12 q-my-md">
+            <img
+              src="statics/servicios/5.png"
+              class="text-center"
+              style="max-width: 144px; margin: 0 auto"
+            >
+            <q-card-section>
+              <div class="text-h6 text-primary text-center">Seguros de salud colaboradores</div>
+            </q-card-section>
+          </q-card>
+        </q-card-section>
+
+        <q-card-section class="col-12 col-md-8 q-ma-md">
+          <block-quote type="primary text-dark">
+            <span class="text-h6 text-black"> Comparte tus resultados en tus redes sociales para que tus amigos conozcan esta aplicación.
+            </span>
+          </block-quote>
+        </q-card-section>
+
+        <q-card-section class="col-12 col-md-8 row justify-center q-mb-xl">
+
+          <q-avatar
+            size="100px"
+            class="q-ma-md"
+            font-size="52px"
+            color="blue"
+            text-color="white"
+            icon="fab fa-facebook"
+          />
+
+          <q-avatar
+            class="q-ma-md"
+            size="100px"
+            font-size="52px"
+            color="cyan"
+            text-color="white"
+            icon="fab fa-twitter"
+          />
+
+          <q-avatar
+            class="q-ma-md"
+            size="100px"
+            font-size="52px"
+            color="purple"
+            text-color="white"
+            icon="fab fa-instagram"
           />
         </q-card-section>
 
       </q-card>
     </div>
-    <q-carousel
+    <!-- <q-carousel
       v-show="fullscreen"
       swipeable
       animated
@@ -133,7 +236,7 @@
           />
         </q-carousel-control>
       </template>
-    </q-carousel>
+    </q-carousel> -->
   </q-page>
 </template>
 
