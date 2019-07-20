@@ -17,8 +17,12 @@
         >
           <div class="q-col-gutter-md row items-start">
             <div class="col-8">
-              <p class="card-text mb-auto">
-                En esta fase el usuario resolverá un pequeño test y se tomará un Selfie para poder ser analizado en la siguiente fase, Este test determinará el nivel de estrés en la persona.
+              <p class="card-text mb-auto text-justify">
+                Puede parecer una ironía, pero algo que ocurre en muchas ocasiones es que ni siquiera nosotros sabermos como nos sentimos.
+En esta fase la persona resolverá un pequeño test, donde se ingresará Nombre, Edad e indicará eventos ocurridos en su vida con un lapso de tiempo.
+Se ha tomado 8 emociones que son indicadores que utilizara esta Aplicación para determinar el nivel de estrés en la persona.
+Posteriormente la persona deberá tomarse una foto donde deberá enfocar todo el rostro.
+Recuerde que estos datos tienen que ser reales y no fotos antiguas ya que modificará el diagnostico
               </p>
 
             </div>
