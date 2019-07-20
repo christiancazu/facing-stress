@@ -3,7 +3,7 @@
     <div class="row justify-center q-my-sm q-ma-sm">
 
       <q-card class="col-12 col-md-8 q-my-md">
-        <q-card-section class="bg-primary text-white">
+        <q-card-section class="bg-secondary text-white">
           <div class="text-h6 text-center">Prueba de emociones</div>
         </q-card-section>
 

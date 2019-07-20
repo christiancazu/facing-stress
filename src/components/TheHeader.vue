@@ -1,13 +1,15 @@
 <template>
-<div>
-  <q-header
+  <div>
+    <q-header
       elevated
-      class="bg-primary row justify-center glossy"
+      class="bg-white row justify-center q-py-none"
     >
-      <q-toolbar class="col-md-10">
+      <q-toolbar class="col-md-10 q-py-none">
         <q-btn
           class="lt-md"
-          flat dense round
+          flat
+          dense
+          round
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
         >
@@ -16,14 +18,18 @@
 
         <q-btn
           :to="`${isScreenMd ? '' : '/'}`"
-          flat stretch no-caps
-          :class="{ 'full-width q-pl-none' : isScreenMd }">
-          <q-avatar>
-            <img :src="avatarImgPath">
-          </q-avatar>
+          flat
+          stretch
+          no-caps
+          :class="{ 'full-width q-pl-none' : isScreenMd }"
+        >
+
+          <img :src="avatarImgPath">
+
           <q-toolbar-title
             shrink
-            class="on-left">
+            class="on-left primary-text-color"
+          >
             {{ appName }}
           </q-toolbar-title>
         </q-btn>
@@ -32,13 +38,15 @@
 
         <!-- navs links -->
         <q-item
-          v-for="nav in navs" :key="nav"
+          v-for="nav in navs"
+          :key="nav"
           :to="{ name: nav }"
-          exact v-ripple
+          exact
+          v-ripple
           class="gt-sm text-capitalize"
         >
           <q-item-section>
-            <q-item-label>{{ $t(nav) }}</q-item-label>
+            <q-item-label class="primary-text-color">{{ $t(nav) }}</q-item-label>
           </q-item-section>
         </q-item>
 
@@ -57,10 +65,12 @@
       <q-list>
         <!-- <q-item-label header>Essential Links</q-item-label> -->
         <q-item
-          v-for="nav in navs" :key="nav"
+          v-for="nav in navs"
+          :key="nav"
           :to="{ name: nav }"
-          exact exact-active-class
-          class="text-center text-capitalize"
+          exact
+          exact-active-class
+          class="text-center text-capitalize text-dark"
         >
           <q-item-section>
             <q-item-label>{{ $t(nav) }}</q-item-label>
@@ -68,11 +78,11 @@
         </q-item>
 
         <!-- locale-dropdown component -->
-        <locale-dropdown arrow-right/>
+        <locale-dropdown arrow-right />
       </q-list>
     </q-drawer>
 
-</div>
+  </div>
 </template>
 
 <script>
@@ -84,7 +94,7 @@ export default {
       navs: ['home', 'test', 'how'],
       appName: process.env.APP_NAME,
       leftDrawerOpen: !this.$q.platform.is.desktop,
-      avatarImgPath: 'statics/icons/favicon.ico'
+      avatarImgPath: 'statics/logo.png'
     }
   },
   computed: {
@@ -101,8 +111,9 @@ export default {
   color: inherit;
   font-size: 16px;
   font-weight: 600;
+
   &:not(.q-router-link--active) {
-    opacity: .8;
+    opacity: 0.8;
     font-weight: 400;
   }
 }

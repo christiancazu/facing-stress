@@ -4,6 +4,8 @@
     :menu-anchor="menuAnchor"
     flat stretch
     icon="language"
+    iconColor="red"
+    class="primary-text-color"
     :class="{
       'gt-sm': gtSm,
       'arrow-right full-width q-py-md': arrowRight
