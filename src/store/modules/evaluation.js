@@ -3,7 +3,7 @@ export const state = {
   formAttrs: {
     name: '',
     age: null,
-    emotions: []
+    sumOfQuestions: null
   },
   faceApiAttrs: {}
 }
@@ -16,10 +16,10 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_FORM_ATTRS: (state, { name, age, emotions, faceImg }) => {
+  SET_FORM_ATTRS: (state, { name, age, sumOfQuestions, faceImg }) => {
     state.formAttrs.name = name
     state.formAttrs.age = age
-    state.formAttrs.emotions = emotions
+    state.formAttrs.sumOfQuestions = sumOfQuestions
     state.faceImg = faceImg
   },
 

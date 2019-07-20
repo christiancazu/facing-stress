@@ -151,18 +151,40 @@ export default {
   },
 
   mounted () {
-    this.formAttrs.emotions.forEach(e => {
-      this.emos.push({
-        name: e.name,
-        color: e.color,
-        formValue: (e.value * 10),
-        apiFaceValue: +(Math.round((this.faceApiAttrs.faceAttributes.emotion[e.name] * 100) + 'e+2') + 'e-2')
-      })
-    })
+    this.calculateStressLevel()
+    // this.formAttrs.emotions.forEach(e => {
+    //   this.emos.push({
+    //     name: e.name,
+    //     color: e.color,
+    //     formValue: (e.value * 10),
+    //     apiFaceValue: +(Math.round((this.faceApiAttrs.faceAttributes.emotion[e.name] * 100) + 'e+2') + 'e-2')
+    //   })
+    // })
+  },
+
+  methods: {
+    calculateStressLevel () {
+      let sumOfQuestions = this.formAttrs.sumOfQuestions
+      let apiEmotions = this.faceApiAttrs.faceAttributes.emotion
+      let sumOfEmotions =
+          apiEmotions.anger + apiEmotions.contempt + apiEmotions.disgust + apiEmotions.fear + apiEmotions.sadness
+      let ageFromApi = this.faceApiAttrs.faceAttributes.age
+      console.warn('sumOfEmotions', sumOfEmotions)
+      console.warn('sumOfQuestions', sumOfQuestions)
+      console.warn('ageFromApi', ageFromApi)
+      console.warn('age from form', this.formAttrs.age)
+      let result =
+          (2 * (sumOfQuestions)) +
+          (10 * (sumOfEmotions)) +
+          ((ageFromApi - this.formAttrs.age) / 1.618)
+      console.warn('result', result)
+      let round = (result * 100) / 20
+      console.warn('round', round)
+    }
   },
 
   computed: {
-    ...mapState('test', ['faceImg', 'formAttrs', 'faceApiAttrs'])
+    ...mapState('evaluation', ['faceImg', 'formAttrs', 'faceApiAttrs'])
   }
 }
 </script>

@@ -177,8 +177,8 @@ export default {
       &:hover {
         transform: scale(1.1);
         background-color: white;
-        border: 6px solid $primary;
-        color: $primary;
+        border: 6px solid $secondary;
+        color: $secondary;
 
         &:after {
           opacity: 0.4;

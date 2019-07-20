@@ -6,10 +6,8 @@
     >
       <q-toolbar class="col-md-10 q-py-none">
         <q-btn
-          class="lt-md"
-          flat
-          dense
-          round
+          class="lt-md text-primary border-primary"
+          flat outline dense round
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
         >
@@ -24,7 +22,7 @@
           :class="{ 'full-width q-pl-none' : isScreenMd }"
         >
 
-          <img :src="avatarImgPath">
+          <img :src="isScreenMd ? iconImgPath : avatarImgPath">
 
           <q-toolbar-title
             shrink
@@ -94,7 +92,8 @@ export default {
       navs: ['home', 'evaluation', 'how'],
       appName: process.env.APP_NAME,
       leftDrawerOpen: !this.$q.platform.is.desktop,
-      avatarImgPath: 'statics/logo.png'
+      avatarImgPath: 'statics/logo.png',
+      iconImgPath: 'statics/icons/ba4dfc0ede2db9337c4fcf82bedf78d6.png'
     }
   },
   computed: {
@@ -116,5 +115,9 @@ export default {
     opacity: 0.8;
     font-weight: 400;
   }
+}
+
+.border-primary {
+  border: 1px solid $primary;
 }
 </style>

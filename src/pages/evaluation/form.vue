@@ -31,7 +31,7 @@
           <div class="row justify-center q-gutter-x-xl q-px-md">
             <q-input
               v-model="name"
-              class="col text-capitalize"
+              class="col text-capitalize "
               bottom-slots
               color="secondary"
               name="name"
@@ -118,7 +118,7 @@ import Swal from 'sweetalert2'
 import validateFormMixin from '@/mixins/validateFormMixin'
 
 export default {
-  name: 'TestIndex',
+  name: 'EvaluationIndex',
   data () {
     return {
       cover_img_file: null,
@@ -240,15 +240,18 @@ export default {
       callback(buff)
     },
     saveFormDataInStore () {
-      this.$store.commit('test/SET_FORM_ATTRS', {
+      this.$store.commit('evaluation/SET_FORM_ATTRS', {
         name: this.name,
         age: this.age,
-        emotions: this.emotionSliders,
+        sumOfQuestions: this.group.reduce((acc, item) => {
+          acc += item
+          return acc
+        }, 0),
         faceImg: this.cover_img_file
       })
     },
     saveApiFaceDataInStore (data) {
-      this.$store.commit('test/SET_API_FACE_ATTRS', data[0])
+      this.$store.commit('evaluation/SET_API_FACE_ATTRS', data[0])
     }
   },
 
