@@ -2,7 +2,7 @@
   <div>
     <q-header
       elevated
-      class="bg-white row justify-center q-py-none"
+      class="bg-white row justify-center q-py-sm"
     >
       <q-toolbar class="col-md-10 q-py-none">
         <q-btn
@@ -26,7 +26,7 @@
 
           <q-toolbar-title
             shrink
-            class="on-left primary-text-color"
+            class="on-left" style="color: #000"
           >
             {{ appName }}
           </q-toolbar-title>
@@ -44,7 +44,7 @@
           class="gt-sm text-capitalize"
         >
           <q-item-section>
-            <q-item-label class="primary-text-color">{{ $t(nav) }}</q-item-label>
+            <q-item-label class="color: #ccc">{{ $t(nav) }}</q-item-label>
           </q-item-section>
         </q-item>
 
@@ -107,12 +107,12 @@ export default {
 <style lang="stylus" scoped>
 /* navs text styles for active/no active link */
 .q-item {
-  color: inherit;
+  color: #000;
   font-size: 16px;
   font-weight: 600;
 
   &:not(.q-router-link--active) {
-    opacity: 0.8;
+    opacity: 1;
     font-weight: 400;
   }
 }

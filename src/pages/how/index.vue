@@ -11,7 +11,7 @@
       >
         <q-step
           :name="1"
-          title="Fase 1: Test!!"
+          title="Fase 1: Evaluación"
           icon="settings"
           :done="done1"
         >
