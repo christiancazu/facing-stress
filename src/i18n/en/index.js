@@ -50,6 +50,9 @@ export default {
     work: 'Having been fired from his job',
     retired: 'It has retired',
     loss: 'Loss of valuables in the event of a disaster or theft',
-    debt: 'You have an economic debt'
+    debt: 'You have an economic debt',
+    low: 'low',
+    medium: 'medium',
+    hight: 'hight'
   }
 }

@@ -50,6 +50,9 @@ export default {
     work: 'Haber sido despedido de su trabajo',
     retired: 'Se ha jubilado',
     loss: 'Perdida de objetos de valor ante un desastre u robo',
-    debt: 'Tiene una deuda económica'
+    debt: 'Tiene una deuda económica',
+    low: 'leve',
+    medium: 'moderado',
+    hight: 'crítico'
   }
 }

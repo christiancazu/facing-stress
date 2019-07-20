@@ -95,7 +95,6 @@
               class="col q-mx-md"
               color="secondary"
             />
-
             <q-btn
               v-if="step > 1"
               push
@@ -118,7 +117,7 @@ import Swal from 'sweetalert2'
 import validateFormMixin from '@/mixins/validateFormMixin'
 
 export default {
-  name: 'EvaluationIndex',
+  name: 'EvaluationForm',
   data () {
     return {
       cover_img_file: null,

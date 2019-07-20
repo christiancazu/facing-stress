@@ -2,20 +2,9 @@
   <q-page>
     <div class="row justify-center q-my-sm q-ma-sm">
       <q-card class="col-12 col-md-8 q-my-md">
-        <q-card-section class="bg-primary text-white">
-          <div class="text-h6 text-center">Resultados</div>
+        <q-card-section class="text-h6 text-white text-center bg-secondary">
+          Resultados de la evaluación
         </q-card-section>
-
-        <q-card-section class="q-ma-md text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam
-          quas pariatur magnam ducimus nobis sint atque id praesentium quae
-          consectetur natus architecto modi, quidem possimus molestiae ad recusandae eaque?
-        </q-card-section>
-      </q-card>
-
-      <q-card class="col-12 col-md-8 q-my-md">
         <q-card-section class="q-ma-md text-center">
           <q-img
             :src="faceImg"
@@ -26,65 +15,77 @@
             </div>
           </q-img>
         </q-card-section>
-        <q-card-section>
-          <h6 class="text-h6 q-mx-md text-accent">Resultado de emociones:</h6>
-          <div class="row justify-center">
-            <div class="col text-h6 bg-primary text-white text-center q-mx-sm q-py-sm">
-              Formulario
-            </div>
-            <div class="col text-h6 bg-primary text-white text-center q-mx-sm q-py-sm">
-              Reconocimiento facial
-            </div>
-          </div>
-        </q-card-section>
+
+        <div class="q-px-md text-h6 text-accent q-ma-xl">
+          Resultados de reconocimiento facial
+        </div>
 
         <q-card-section class="col-12 col-md-8 q-my-md">
 
           <div
             class="row justify-center"
-            v-for="(emo, index) in emos"
+            v-for="(emotion, index) in emotions"
             :key="index"
           >
-            <div class="col-2 text-center text-h6 q-py-xs">{{emo.formValue}}%</div>
             <q-chip
               class="col-4 col-sm-2 q-py-none"
-              :color="emo.color"
+              :color="emotion.color"
               text-color="white"
             >
               <q-avatar>
-                <img :src="`statics/emojis/${emo.name}.png`">
+                <img :src="`statics/emojis/${emotion.name}.png`">
               </q-avatar>
-              {{ $t(`${emo.name}`) }}
+              {{ $t(`${emotion.name}`) }}
             </q-chip>
-            <div class="col-2 text-center text-h6 q-py-xs">{{emo.apiFaceValue}}%</div>
+            <div class="col-2 text-center text-h6 q-py-xs">{{emotion.value}}%</div>
           </div>
 
         </q-card-section>
 
         <q-card-section class="col-12 col-md-8 q-my-md">
-          <h6 class="text-h6 q-mx-md text-accent">Tambien hemos detectado:</h6>
 
-          <div class="q-ma-md doc-note doc-note--tip bg-light-green-2 q-pa-xs">
-            <p>
-              En el formulario indicaste que tienes una edad de
-              <span class="text-secondary">{{ formAttrs.age }}</span>
-              y la prueba de reconocimiento facial ha detectado que tienes <span class="text-secondary">{{ faceApiAttrs.faceAttributes.age }}</span> años.
-            </p>
+          <div class="q-px-md text-h6 text-accent q-ma-xl">
+            Porcentaje del nivel de estrés
           </div>
-          <div class="q-ma-md doc-note doc-note--tip bg-light-green-2 q-pa-xs">
-            <p>
-              La prueba de reconocimiento facial ha detectado que tu género es <span class="text-secondary">{{ $t(`${faceApiAttrs.faceAttributes.gender}`) }}</span>.
-            </p>
+
+          <vue-thermometer
+            class="justify-center"
+            :value="thermometerValue"
+            :min="0"
+            :max="90"
+            scale="%"
+          />
+          <div class="q-pa-md text-h5 text-secondary text-center">
+            {{ thermometerValue }}% se considera un nivel de estrés {{ $t(levelResult) }}
           </div>
+        </q-card-section>
+
+        <q-card-section class="col-12 col-md-8 q-mx-md">
+
+          <div class="q-px-md text-h6 text-accent q-my-md">
+            También hemos detectado
+          </div>
+
+          <block-quote type="primary">
+            En el formulario indicaste que tienes una edad de
+            <span class="text-secondary text-h6 text-accent">{{ formAttrs.age }}</span> años
+            y la evaluación de reconocimiento facial ha detectado que tienes <span class="text-h6 text-accent">{{ faceApiAttrs.faceAttributes.age }}</span> años.
+          </block-quote>
+
+          <block-quote type="primary">
+            La prueba de reconocimiento facial ha detectado que tu género es <span class="text-h6 text-accent">{{ $t(`${faceApiAttrs.faceAttributes.gender}`) }}</span>.
+          </block-quote>
+
         </q-card-section>
 
         <q-card-section class="col-12 q-ma-md">
           <q-btn
             @click="fullscreen = true"
             :label="'Ver mis Recomendaciones'"
-            push glossy
+            push
+            glossy
             class="col full-width q-ma-sm"
-            color="primary"
+            color="secondary"
           />
         </q-card-section>
 
@@ -144,22 +145,29 @@ export default {
 
   data () {
     return {
-      emos: [],
+      emotions: [
+        { name: 'anger', value: 0, color: 'red' },
+        { name: 'contempt', value: 0, color: 'purple' },
+        { name: 'disgust', value: 0, color: 'indigo' },
+        { name: 'fear', value: 0, color: 'light-blue' },
+        { name: 'happiness', value: 0, color: 'teal' },
+        { name: 'neutral', value: 0, color: 'light-green' },
+        { name: 'sadness', value: 0, color: 'amber' },
+        { name: 'surprise', value: 0, color: 'deep-orange' }
+      ],
       slide: 1,
-      fullscreen: false
+      fullscreen: false,
+      levelResult: '',
+      thermometerValue: null
     }
   },
 
   mounted () {
-    this.calculateStressLevel()
-    // this.formAttrs.emotions.forEach(e => {
-    //   this.emos.push({
-    //     name: e.name,
-    //     color: e.color,
-    //     formValue: (e.value * 10),
-    //     apiFaceValue: +(Math.round((this.faceApiAttrs.faceAttributes.emotion[e.name] * 100) + 'e+2') + 'e-2')
-    //   })
-    // })
+    this.levelResult = this.calculateStressLevel()
+
+    Object.values(this.faceApiAttrs.faceAttributes.emotion).forEach((e, i) => {
+      this.emotions[i].value = +(Math.round((e * 100) + 'e+2') + 'e-2')
+    })
   },
 
   methods: {
@@ -167,19 +175,27 @@ export default {
       let sumOfQuestions = this.formAttrs.sumOfQuestions
       let apiEmotions = this.faceApiAttrs.faceAttributes.emotion
       let sumOfEmotions =
-          apiEmotions.anger + apiEmotions.contempt + apiEmotions.disgust + apiEmotions.fear + apiEmotions.sadness
+        apiEmotions.anger + apiEmotions.contempt + apiEmotions.disgust + apiEmotions.fear + apiEmotions.sadness
       let ageFromApi = this.faceApiAttrs.faceAttributes.age
-      console.warn('sumOfEmotions', sumOfEmotions)
-      console.warn('sumOfQuestions', sumOfQuestions)
-      console.warn('ageFromApi', ageFromApi)
-      console.warn('age from form', this.formAttrs.age)
+      if (apiEmotions.happiness > 0.5) {
+        this.thermometerValue = 16
+        return 'leve'
+      }
       let result =
-          (2 * (sumOfQuestions)) +
-          (10 * (sumOfEmotions)) +
-          ((ageFromApi - this.formAttrs.age) / 1.618)
-      console.warn('result', result)
-      let round = (result * 100) / 20
-      console.warn('round', round)
+        (2 * (sumOfQuestions)) +
+        (10 * (sumOfEmotions)) +
+        ((ageFromApi - this.formAttrs.age) / 1.618)
+      let roundResult = (result * 100) / 25
+      if (roundResult > 99) this.thermometerValue = 100
+      else this.thermometerValue = parseInt(roundResult)
+      switch (roundResult) {
+        case roundResult < 30:
+          return 'leve'
+        case roundResult < 70:
+          return 'moderado'
+        default:
+          return 'alto'
+      }
     }
   },
 
