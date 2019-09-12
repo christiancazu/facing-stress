@@ -26,7 +26,7 @@
       <div class="col-12 col-md-8 q-mt-xl">
         <h2
           class="text-center text-h1"
-          style="color: #e65100; font-size: 48px; font-weight: 800"
+          style="color: #e65100; font-size: 36px; font-weight: 800"
         >Facing Stress</h2>
         <p
           style="text-align: justify; color: #000; z-index:1000; font-size: 24px"

@@ -271,6 +271,8 @@ export default {
     Object.values(this.faceApiAttrs.faceAttributes.emotion).forEach((e, i) => {
       this.emotions[i].value = +(Math.round((e * 100) + 'e+2') + 'e-2')
     })
+    this.emotions = this.emotions.sort(function (a, b) { return b.value - a.value })
+    console.warn(this.emotions)
   },
 
   methods: {
